@@ -1,0 +1,13 @@
+{% extends "clinica/base.html" %}
+{% block title %}Eliminar — Salud Vital{% endblock %}
+{% block content %}
+<div class="col-lg-6 mx-auto">
+  <div class="alert alert-warning">
+    <p>¿Seguro que deseas eliminar este registro?</p>
+    <form method="post">{% csrf_token %}
+      <button class="btn btn-danger">Sí, eliminar</button>
+      <a class="btn btn-secondary" href="javascript:history.back()">Cancelar</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

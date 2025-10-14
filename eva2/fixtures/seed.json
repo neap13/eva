@@ -1,0 +1,18 @@
+[
+    {"model":"clinica.especialidad","pk":1,"fields":{"nombre":"Medicina General"}},
+    {"model":"clinica.especialidad","pk":2,"fields":{"nombre":"Cardiología"}},
+    {"model":"clinica.especialidad","pk":3,"fields":{"nombre":"Dermatología"}},
+  
+    {"model":"clinica.aseguradora","pk":1,"fields":{"nombre":"FONASA","plan":"B"}},
+    {"model":"clinica.aseguradora","pk":2,"fields":{"nombre":"ISAPRE Vida3","plan":"Premium"}},
+  
+    {"model":"clinica.paciente","pk":1,"fields":{"rut":"12.345.678-9","nombres":"Ana","apellidos":"Pérez","sexo":"F","fecha_nacimiento":"1992-05-20","telefono":"912345678","email":"ana@example.com","aseguradora":1}},
+    {"model":"clinica.paciente","pk":2,"fields":{"rut":"11.222.333-4","nombres":"Luis","apellidos":"Rojas","sexo":"M","fecha_nacimiento":"1988-03-02","telefono":"987654321","email":"luis@example.com","aseguradora":2}},
+  
+    {"model":"clinica.medico","pk":1,"fields":{"rut":"9.876.543-2","nombres":"Carolina","apellidos":"Gómez","especialidad":2,"registro_colegio":"REG-123","email":"cgomez@clinica.cl","telefono":"22334455"}},
+    {"model":"clinica.medico","pk":2,"fields":{"rut":"8.765.432-1","nombres":"Juan","apellidos":"Díaz","especialidad":1,"registro_colegio":"REG-456","email":"jdiaz@clinica.cl","telefono":"22334456"}},
+  
+    {"model":"clinica.medicamento","pk":1,"fields":{"nombre":"Paracetamol 500mg","via_administracion":"ORAL","indicaciones_generales":"No exceder 3g/día"}},
+    {"model":"clinica.medicamento","pk":2,"fields":{"nombre":"Amoxicilina 500mg","via_administracion":"ORAL","indicaciones_generales":"Cada 8 horas por 7 días"}}
+  ]
+  

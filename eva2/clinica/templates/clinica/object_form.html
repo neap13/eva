@@ -1,0 +1,14 @@
+{% extends "clinica/base.html" %}
+{% block title %}Formulario — Salud Vital{% endblock %}
+{% block content %}
+<div class="col-lg-8 mx-auto">
+  <div class="card shadow"><div class="card-body">
+    <form method="post">{% csrf_token %}{{ form.as_p }}
+      <div class="d-flex gap-2">
+        <button class="btn btn-primary">Guardar</button>
+        <a class="btn btn-secondary" href="javascript:history.back()">Cancelar</a>
+      </div>
+    </form>
+  </div></div>
+</div>
+{% endblock %}

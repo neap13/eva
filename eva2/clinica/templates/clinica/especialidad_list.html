@@ -1,0 +1,24 @@
+{% extends "clinica/base.html" %}
+{% block title %}Especialidades{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between mb-3">
+  <h2 class="h4">Especialidades</h2>
+  <a class="btn btn-primary" href="/especialidades/crear/">+ Nueva</a>
+</div>
+<div class="table-responsive bg-white shadow rounded">
+<table class="table">
+  <thead><tr><th>Nombre</th><th></th></tr></thead>
+  <tbody>
+    {% for o in object_list %}
+      <tr>
+        <td>{{ o.nombre }}</td>
+        <td class="text-end">
+          <a class="btn btn-sm btn-outline-primary" href="/especialidades/{{o.id}}/editar/">Editar</a>
+          <a class="btn btn-sm btn-outline-danger" href="/especialidades/{{o.id}}/eliminar/">Eliminar</a>
+        </td>
+      </tr>
+    {% empty %}<tr><td colspan="2" class="text-center">Sin registros</td></tr>{% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

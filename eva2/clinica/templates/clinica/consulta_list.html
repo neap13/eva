@@ -1,0 +1,34 @@
+{% extends "clinica/base.html" %}
+{% block title %}Consultas{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between mb-3">
+  <h2 class="h4">Consultas</h2>
+  <a class="btn btn-primary" href="/consultas/crear/">+ Nueva</a>
+</div>
+<form class="row g-2 mb-3">
+  <div class="col-md-3"><input name="medico" class="form-control" placeholder="ID médico" value="{{ request.GET.medico }}"></div>
+  <div class="col-md-3"><input name="paciente" class="form-control" placeholder="ID paciente" value="{{ request.GET.paciente }}"></div>
+  <div class="col-md-3"><input name="especialidad" class="form-control" placeholder="ID especialidad" value="{{ request.GET.especialidad }}"></div>
+  <div class="col-md-3"><button class="btn btn-outline-secondary w-100">Filtrar</button></div>
+</form>
+<div class="table-responsive bg-white shadow rounded">
+<table class="table">
+  <thead><tr><th>Fecha</th><th>Paciente</th><th>Médico</th><th>Esp.</th><th>Motivo</th><th></th></tr></thead>
+  <tbody>
+    {% for c in object_list %}
+      <tr>
+        <td>{{ c.fecha }}</td>
+        <td>{{ c.paciente }}</td>
+        <td>{{ c.medico }}</td>
+        <td>{{ c.especialidad.nombre }}</td>
+        <td>{{ c.motivo }}</td>
+        <td class="text-end">
+          <a class="btn btn-sm btn-outline-primary" href="/consultas/{{c.id}}/editar/">Editar</a>
+          <a class="btn btn-sm btn-outline-danger" href="/consultas/{{c.id}}/eliminar/">Eliminar</a>
+        </td>
+      </tr>
+    {% empty %}<tr><td colspan="6" class="text-center">Sin registros</td></tr>{% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

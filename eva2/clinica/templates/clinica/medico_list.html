@@ -1,0 +1,30 @@
+{% extends "clinica/base.html" %}
+{% block title %}Médicos{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between mb-3">
+  <h2 class="h4">Médicos</h2>
+  <a class="btn btn-primary" href="/medicos/crear/">+ Nuevo</a>
+</div>
+<form class="row g-2 mb-3">
+  <div class="col-md-4"><input name="especialidad" class="form-control" placeholder="ID especialidad" value="{{ request.GET.especialidad }}"></div>
+  <div class="col-md-2"><button class="btn btn-outline-secondary w-100">Filtrar</button></div>
+</form>
+<div class="table-responsive bg-white shadow rounded">
+<table class="table">
+  <thead><tr><th>RUT</th><th>Nombre</th><th>Especialidad</th><th></th></tr></thead>
+  <tbody>
+    {% for m in object_list %}
+      <tr>
+        <td>{{ m.rut }}</td>
+        <td>{{ m.nombres }} {{ m.apellidos }}</td>
+        <td>{{ m.especialidad.nombre }}</td>
+        <td class="text-end">
+          <a class="btn btn-sm btn-outline-primary" href="/medicos/{{m.id}}/editar/">Editar</a>
+          <a class="btn btn-sm btn-outline-danger" href="/medicos/{{m.id}}/eliminar/">Eliminar</a>
+        </td>
+      </tr>
+    {% empty %}<tr><td colspan="4" class="text-center">Sin registros</td></tr>{% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

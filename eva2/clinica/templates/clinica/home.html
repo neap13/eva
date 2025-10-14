@@ -1,0 +1,37 @@
+{% extends "clinica/base.html" %}
+{% block title %}Inicio — Salud Vital{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-card">
+    <h1 class="hero-title">Fertilidad con confianza y <span class="accent">vanguardia</span></h1>
+    <p class="hero-sub">En Salud Vital te acompañamos con un enfoque personalizado y especialistas.</p>
+    <div class="hero-actions d-flex gap-2">
+      <a href="#reserva" class="btn btn-danger">Agenda ¡aquí!</a>
+      <a class="btn btn-success"
+         href="https://wa.me/{{ whatsapp_number }}?{{ 'text='|add:wa_text|urlencode }}"
+         target="_blank" rel="noopener">Conversemos por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section id="reserva" class="section">
+  <div class="row g-4">
+    <div class="col-lg-6">
+      <div class="p-4 bg-white shadow-sm rounded-3 h-100">
+        <h2 class="h5 mb-3">Reserva rápida</h2>
+        <form method="post" action="{% url 'reserva_rapida' %}">
+          {% csrf_token %}
+          {{ reserva_form.as_p }}
+          <button class="btn btn-danger">Enviar solicitud</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="p-4 bg-white shadow-sm rounded-3 h-100">
+        <h2 class="h5 mb-3">¿Cómo funciona?</h2>
+        <ul class="mb-0"><li>Completa tus datos y especialidad.</li><li>Asignamos un médico disponible.</li><li>Te contactamos para confirmar.</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
